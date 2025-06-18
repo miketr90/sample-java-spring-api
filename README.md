@@ -1,24 +1,16 @@
-# Spring Boot Order API with Basic Authentication
+# Spring Boot Order API 
 
-This is a RESTful API built with Spring Boot that allows authenticated users to place orders. The API uses Basic Authentication for security.
+This is a RESTful API built with Spring Boot that allows authenticated users to place orders.
 
 ## Features
 
-- User registration and authentication using Basic Auth
+- User registration 
 - Create and view orders
 - Exception handling with appropriate HTTP status codes
 - Data validation
 - In-memory H2 database
 
 ## API Endpoints
-
-### Authentication
-
-The API uses HTTP Basic Authentication. Include an `Authorization` header with your requests using the format:
-
-```
-Authorization: Basic base64(username:password)
-```
 
 ### User Endpoints
 
@@ -33,11 +25,11 @@ Authorization: Basic base64(username:password)
     }
     ```
 
-- **GET /api/users/me** - Get the current user's information (requires authentication)
+- **GET /api/users/me** - Get the current user's information
 
 ### Order Endpoints
 
-- **POST /api/orders** - Create a new order (requires authentication)
+- **POST /api/orders** - Create a new order
   - Request body:
     ```json
     {
@@ -48,9 +40,9 @@ Authorization: Basic base64(username:password)
     }
     ```
 
-- **GET /api/orders** - Get all orders for the current user (requires authentication)
+- **GET /api/orders** - Get all orders for the current user 
 
-- **GET /api/orders/{id}** - Get a specific order by ID (requires authentication)
+- **GET /api/orders/{id}** - Get a specific order by ID 
 
 ## Running the Application
 
@@ -95,6 +87,5 @@ curl -X POST http://localhost:8080/api/orders \
 
 ## Security
 
-- The API uses Spring Security with Basic Authentication
 - Passwords are stored in the database using BCrypt encoding
 - Endpoints are secured to ensure users can only access their own data
