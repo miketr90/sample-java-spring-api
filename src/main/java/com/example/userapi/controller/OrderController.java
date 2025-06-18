@@ -45,4 +45,15 @@ public class OrderController {
         OrderResponse order = orderService.getOrderById(id, userDetails.getUsername());
         return ResponseEntity.ok(order);
     }
+
+    @GetMapping("/oops")
+    public String testEndpoint() {
+        try {
+            // Simulate an exception
+            throw new RuntimeException("Something went wrong!");
+        } catch (Exception e) {
+            // BAD PRACTICE: Leaking stack trace to the client
+            return e.toString() + "\n" + Arrays.toString(e.getStackTrace());
+        }
+    }
 }
