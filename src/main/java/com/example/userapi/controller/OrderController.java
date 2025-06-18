@@ -47,13 +47,9 @@ public class OrderController {
     }
 
     @GetMapping("/oops")
-    public String testEndpoint() {
-        try {
-            // Simulate an exception
-            throw new RuntimeException("Something went wrong!");
-        } catch (Exception e) {
-            // BAD PRACTICE: Leaking stack trace to the client
-            return e.toString() + "\n" + Arrays.toString(e.getStackTrace());
-        }
+    public ResponseEntity<string> testEndpoint() {
+        // Simulate an exception
+        // Let the global exception handler properly manage the error response
+        throw new RuntimeException("Something went wrong!");
     }
 }
